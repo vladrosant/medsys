@@ -7,5 +7,5 @@ router.register(r'patients', PatientViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include(patients.urls)),
+    path('api/', include('patients.urls')),
 ]
