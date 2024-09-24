@@ -5,6 +5,7 @@ class AddPatientController(QWidget):
     def __init__(self):
         super().__init__()
         self.initUI()
+        self.show()
 
     def initUI(self):
         self.setWindowTitle('Registrar paciente')

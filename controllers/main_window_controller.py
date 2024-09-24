@@ -4,6 +4,7 @@ class MainWindowController(QWidget):
     def __init__(self):
         super().__init__()
         self.initUI()
+        self.show()
 
     def initUI(self):
         self.setWindowTitle('Medical System - Main Window')
@@ -11,5 +12,3 @@ class MainWindowController(QWidget):
 
         label = QLabel('Medical System Dashboard', self)
         label.move(200, 200)
-
-        self.show()
