@@ -122,6 +122,12 @@ class Ui_MainWindow(object):
         self.show_password.released.connect(self.show_password_released)
         self.sign_in.clicked.connect(self.login)
 
+        MainWindow.setTabOrder(self.lineEdit, self.lineEdit_2)
+        MainWindow.setTabOrder(self.lineEdit_2, self.show_password)
+        MainWindow.setTabOrder(self.show_password, self.sign_up)
+        MainWindow.setTabOrder(self.sign_up, self.recover_password)
+        MainWindow.setTabOrder(self.recover_password, self.sign_in)
+
     def show_password_pressed(self):
         self.lineEdit_2.setEchoMode(QtWidgets.QLineEdit.EchoMode.Normal)
 
