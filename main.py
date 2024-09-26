@@ -45,9 +45,9 @@ class Ui_MainWindow(object):
         self.horizontalLayout.addWidget(self.lineEdit_2)
 
         # Show password button
-        self.pushButton_3 = QtWidgets.QPushButton(parent=self.gridLayoutWidget)
-        self.pushButton_3.setObjectName("pushButton_3")
-        self.horizontalLayout.addWidget(self.pushButton_3)
+        self.show_password = QtWidgets.QPushButton(parent=self.gridLayoutWidget)
+        self.show_password.setObjectName("show_password")
+        self.horizontalLayout.addWidget(self.show_password)
 
         # Add horizontal layout to the grid
         self.gridLayout.addLayout(self.horizontalLayout, 2, 3, 1, 1)
@@ -72,21 +72,25 @@ class Ui_MainWindow(object):
         self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
 
-        # Forgot password button
-        self.pushButton = QtWidgets.QPushButton(parent=self.horizontalLayoutWidget_2)
-        self.pushButton.setObjectName("pushButton")
-        self.horizontalLayout_2.addWidget(self.pushButton)
+        # Sign-up button
+        self.sign_up = QtWidgets.QPushButton(parent=self.horizontalLayoutWidget_2)
+        self.sign_up.setObjectName("sign_up")
+        self.horizontalLayout_2.addWidget(self.sign_up)
+
+        self.recover_password = QtWidgets.QPushButton(parent=self.horizontalLayoutWidget_2)
+        self.recover_password.setObjectName("recover_password")
+        self.horizontalLayout_2.addWidget(self.recover_password)
 
         # Spacer between buttons
-        spacerItem1 = QtWidgets.QSpacerItem(
-            40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum
-        )
-        self.horizontalLayout_2.addItem(spacerItem1)
+        # spacerItem1 = QtWidgets.QSpacerItem(
+        #     40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum
+        # )
+        # self.horizontalLayout_2.addItem(spacerItem1)
 
         # Enter button
-        self.pushButton_2 = QtWidgets.QPushButton(parent=self.horizontalLayoutWidget_2)
-        self.pushButton_2.setObjectName("pushButton_2")
-        self.horizontalLayout_2.addWidget(self.pushButton_2)
+        self.sign_in = QtWidgets.QPushButton(parent=self.horizontalLayoutWidget_2)
+        self.sign_in.setObjectName("sign_in")
+        self.horizontalLayout_2.addWidget(self.sign_in)
 
         # Title label
         self.label_3 = QtWidgets.QLabel(parent=self.centralwidget)
@@ -114,14 +118,15 @@ class Ui_MainWindow(object):
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
         # conectar botões às funções correspondentes
-        self.pushButton_3.clicked.connect(self.toggle_password_visibility)
-        self.pushButton_2.clicked.connect(self.login)
+        self.show_password.pressed.connect(self.show_password_pressed)
+        self.show_password.released.connect(self.show_password_released)
+        self.sign_in.clicked.connect(self.login)
 
-    def toggle_password_visibility(self):
-        if self.lineEdit_2.echoMode() == QtWidgets.QLineEdit.EchoMode.Password:
-            self.lineEdit_2.setEchoMode(QtWidgets.QLineEdit.EchoMode.Normal)    
-        else:
-            self.lineEdit_2.setEchoMode(QtWidgets.QLineEdit.EchoMode.Password)
+    def show_password_pressed(self):
+        self.lineEdit_2.setEchoMode(QtWidgets.QLineEdit.EchoMode.Normal)
+
+    def show_password_released(self):
+        self.lineEdit_2.setEchoMode(QtWidgets.QLineEdit.EchoMode.Password)            
 
     def  login(self):
         username = self.lineEdit.text()
@@ -137,9 +142,10 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(_translate("MainWindow", "Sistema Médico Modular"))
         self.label.setText(_translate("MainWindow", "Usuário"))
         self.label_2.setText(_translate("MainWindow", "Senha"))
-        self.pushButton_3.setText(_translate("MainWindow", "mostra"))
-        self.pushButton.setText(_translate("MainWindow", "Esqueci minha senha"))
-        self.pushButton_2.setText(_translate("MainWindow", "Entrar"))
+        self.show_password.setText(_translate("MainWindow", "Show"))
+        self.sign_up.setText(_translate("MainWindow", "Sign up"))
+        self.recover_password.setText(_translate("MainWindow", 'Recover'))
+        self.sign_in.setText(_translate("MainWindow", "Entrar"))
         self.label_3.setText(_translate("MainWindow", "Sistema Médico Modular"))
 
 
