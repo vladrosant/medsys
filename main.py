@@ -81,12 +81,6 @@ class Ui_MainWindow(object):
         self.recover_password.setObjectName("recover_password")
         self.horizontalLayout_2.addWidget(self.recover_password)
 
-        # Spacer between buttons
-        # spacerItem1 = QtWidgets.QSpacerItem(
-        #     40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum
-        # )
-        # self.horizontalLayout_2.addItem(spacerItem1)
-
         # Enter button
         self.sign_in = QtWidgets.QPushButton(parent=self.horizontalLayoutWidget_2)
         self.sign_in.setObjectName("sign_in")
